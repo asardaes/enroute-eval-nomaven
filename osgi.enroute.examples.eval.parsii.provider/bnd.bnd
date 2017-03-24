@@ -1,0 +1,30 @@
+#
+# OSGI ENROUTE EXAMPLES EVAL PARSII PROVIDER BUNDLE 
+#
+
+
+Bundle-Version:					1.0.0.${tstamp}
+Bundle-Description: Eval Provider based on Parsii library
+
+Private-Package:  \
+	parsii.*, \
+	osgi.enroute.examples.eval.parsii.provider
+	
+Export-Package: osgi.enroute.examples.eval.api
+	
+-buildpath: \
+	osgi.enroute.base.api;version=1.0,\
+	osgi.enroute.examples.eval.api;version=latest,\
+	com.scireum:parsii
+	
+-testpath: \
+	osgi.enroute.junit.wrapper;version=4.12
+
+-includeresource: {readme.md}
+
+
+-runrequires:  \
+	osgi.identity;filter:='(osgi.identity=osgi.enroute.examples.eval.parsii.provider)'
+	
+-runbundles: \
+	${error;Resolve first}

@@ -1,0 +1,25 @@
+#
+# OSGI ENROUTE EXAMPLES EVAL APPLICATION APPLICATION
+#
+
+Bundle-Version: 1.0.0.${tstamp}
+Bundle-Description: A web application to evaluate expressions
+
+Private-Package:  \
+	osgi.enroute.examples.eval.application
+
+EnRoute-Application: 	osgi.enroute.examples.eval
+JPM-Command:			eval
+
+-includeresource: \
+	{readme.md}, \
+	{configuration=configuration}, \
+	{static=static}, \
+	web=web
+
+-buildpath: \
+	osgi.enroute.base.api,\
+	osgi.enroute.examples.eval.api;version=latest
+	
+-testpath: \
+	osgi.enroute.junit.wrapper;version=4.12

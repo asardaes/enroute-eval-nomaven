@@ -1,0 +1,26 @@
+#
+# OSGI ENROUTE EXAMPLES EVAL TEST OSGi TEST BUNDLE 
+#
+
+Bundle-Version:1.0.0.${tstamp}
+Bundle-Description: Integration Test bundle for the Eval service
+
+
+Private-Package:  \
+	osgi.enroute.examples.eval.test
+
+Test-Cases: ${test-cases}
+
+
+-includeresource: {readme.md}
+
+-buildpath: \
+	osgi.enroute.base.api;version=1.0,\
+	osgi.enroute.junit.wrapper;version=4.12,\
+	osgi.enroute.examples.eval.api;version=latest
+
+-runrequires: \
+	osgi.identity;filter:='(osgi.identity=osgi.enroute.examples.eval.test)'
+
+-runbundles: \
+	${error;Resolve first}
